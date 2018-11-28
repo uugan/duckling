@@ -11,8 +11,14 @@ module Duckling.Dimensions.MN
   ) where
 
 import Duckling.Dimensions.Types
-
+ 
 allDimensions :: [Some Dimension]
 allDimensions =
-  [ This Numeral
+  [ This Distance
+  , This Duration
+  , This Numeral
+  , This Ordinal
+  , This Quantity
+  , This Temperature
+  , This Volume
   ]

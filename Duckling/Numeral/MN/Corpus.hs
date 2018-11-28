@@ -7,15 +7,19 @@
  {-# LANGUAGE OverloadedStrings #-}
  module Duckling.Numeral.MN.Corpus
   ( corpus ) where
-import Data.String
+
 import Prelude
-import Duckling.Lang
+import Data.String
+
+import Duckling.Locale
 import Duckling.Numeral.Types
 import Duckling.Resolve
 import Duckling.Testing.Types
- corpus :: Corpus
-corpus = (testContext {lang = MN}, allExamples)
- allExamples :: [Example]
+
+corpus :: Corpus
+corpus = (testContext {locale = makeLocale MN Nothing}, testOptions, allExamples)
+
+allExamples :: [Example]
 allExamples = concat
   [ examples (NumeralValue 0)
              [ "0"
@@ -88,4 +92,7 @@ allExamples = concat
   , examples (NumeralValue 34)
              [ "гучин дөрөв"
              ]
+  , examples (NumeralValue 99)
+             [ "ерэн ес"
+             ]             
   ]

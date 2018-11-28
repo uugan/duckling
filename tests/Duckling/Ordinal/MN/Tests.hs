@@ -6,8 +6,18 @@
 -- of patent rights can be found in the PATENTS file in the same directory.
 
 
-import Prelude
-import Duckling.Ranking.Generate
+module Duckling.Ordinal.MN.Tests
+  ( tests ) where
 
-main :: IO ()
-main = regenAllClassifiers
+import Prelude
+import Data.String
+import Test.Tasty
+
+import Duckling.Dimensions.Types
+import Duckling.Ordinal.MN.Corpus
+import Duckling.Testing.Asserts
+
+tests :: TestTree
+tests = testGroup "MN Tests"
+  [ makeCorpusTest [This Ordinal] corpus
+  ]
